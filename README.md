@@ -118,3 +118,43 @@ To delete any generated files and directories (e.g., `.pytest_cache`, `assets`, 
 
 ./pre_cleanup.sh
 poetry run pytest tests/ --html=report.html
+
+# Step 7: Troubleshooting, Insights, and Recommendations
+# ------------------------------------------------------
+
+### Issues Encountered During Implementation
+1. **Request Timeouts**
+   - *Problem*: Requests may occasionally fail due to network issues or high latency.
+   - *Solution*: Implement retry logic using a loop to handle transient errors gracefully.
+
+2. **Data Cleanup**
+   - *Problem*: Data created during testing may be left behind, causing tests to fail on subsequent runs.
+   - *Solution*: Ensure to include teardown steps in your tests to delete any data created during the test process.
+
+3. **Driver Path Issues with Selenium**
+   - *Problem*: Selenium tests may fail due to incorrect driver paths or outdated ChromeDriver.
+   - *Solution*: Keep the ChromeDriver version aligned with your browser version and specify the correct driver path.
+
+### Edge Cases Considered but Not Implemented
+1. **Handling Duplicate Records**
+   - *Reason*: Handling duplicate records, such as attempting to create books with identical titles and authors, was considered but omitted due to complexity in defining unique constraints for each resource.
+
+2. **Concurrency Tests**
+   - *Reason*: Concurrent requests, such as multiple clients trying to update the same record simultaneously, could lead to race conditions. This was not implemented due to time constraints and the need for more advanced tools like threading.
+
+3. **Validation for Missing Fields**
+   - *Reason*: Testing for API validation errors, such as missing fields or invalid data types, was not implemented as it required detailed knowledge of all resource fields and their expected behaviors.
+
+### Additional Insights and Recommendations
+1. **Use Fixtures for Reusable Data**
+   - Utilize pytest fixtures for setting up reusable test data. This approach simplifies test setup and ensures consistent data across tests.
+
+2. **Automate Test Environment Setup**
+   - Consider using Docker to create a reproducible test environment, which includes both the Selenium WebDriver and dependencies. This can minimize the "it works on my machine" issues.
+
+3. **Logging**
+   - Implement proper logging in both API interactions and Selenium tests to help in debugging failed tests. Logs can provide more insight into the state of the application during test failures.
+
+4. **Error Handling**
+   - Implement better error handling when making requests. For instance, using `try...except` blocks can help capture and handle exceptions like `ConnectionError` more effectively, leading to less flakiness in the test suite.
+
