@@ -120,7 +120,6 @@ To delete any generated files and directories (e.g., `.pytest_cache`, `assets`, 
 poetry run pytest tests/ --html=report.html
 
 # Step 7: Troubleshooting, Insights, and Recommendations
-# ------------------------------------------------------
 
 ### Issues Encountered During Implementation
 1. **Request Timeouts**
