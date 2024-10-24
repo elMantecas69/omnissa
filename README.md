@@ -157,3 +157,14 @@ poetry run pytest tests/ --html=report.html
 4. **Error Handling**
    - Implement better error handling when making requests. For instance, using `try...except` blocks can help capture and handle exceptions like `ConnectionError` more effectively, leading to less flakiness in the test suite.
 
+### Common issues
+For any reason, if test_01_get_address fails. The reason might be that address_id has been expired. In order to fix this issue, and continue with the next tests execution, follow the next steps:
+
+Navigate to CrudCrud page.
+Copy the 30 character address_id value ( I.e. 8cd8eac03cb948a8bc207075622b700d) from generated URL into data/addressId.json
+Run the test again
+Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
