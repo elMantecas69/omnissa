@@ -20,7 +20,7 @@ selenium_crud_framework/
 - **tests/**: Contains all the test cases and configurations.
   - **conftest.py**: Contains reusable fixtures for Selenium WebDriver setup.
   - **test_crud_operations.py**: Contains the CRUD operation test cases.
-- **page_objects/**: This folder can be used to create page classes and abstractions.
+- **page_objects/**: This folder can be used to create page classes and abstractions (this time there was not enoght time to implement POM however it could be a good improvment)
 - **pyproject.toml**: Poetry project configuration.
 - **pytest.ini**: Pytest configuration file.
 - **README.md**: Project documentation.
